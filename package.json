@@ -1,0 +1,63 @@
+{
+  "name": "Yacht Sync Pro",
+  "version": "2.0.0",
+  "description": "WordPrss Plugin - Yacht Sync Pro, our WordPress plugin, is a new way to natively integrate three major MLS feeds (YachtWorld, YachtBroker, and/or Yatco) into your WordPress site. Benefit from savvy SEO tactics, easy-to-use shortcodes, fast native WordPress search features, and the ability to customize templates.",
+  "author": "Yachts For Sale Collective",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "WordPress",
+    "Plugin"
+  ],
+  "homepage": "https://yachtsforsale.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YachtsForSaleCollective/yacht-sync-pro-wordpress-plugin"
+  },
+  "bugs": {
+    "url": "https://github.com/YachtsForSaleCollective/yacht-sync-pro-wordpress-plugin/issues"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@wordpress/babel-preset-default": "^7.22.0",
+    "@wordpress/scripts": "^26.13.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-ignore": "^3.0.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-multi-dest": "^1.3.7",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.1.0",
+    "sass": "^1.64.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "rtlcssConfig": {
+    "options": {
+      "autoRename": false,
+      "autoRenameStrict": false,
+      "blacklist": {},
+      "clean": true,
+      "greedy": false,
+      "processUrls": false,
+      "stringMap": []
+    },
+    "plugins": [],
+    "map": false
+  },
+  "scripts": {
+    "bigboyblock": "wp-scripts build --webpack-src-dir=js-blocks --output-path=built-blocks",
+    "blocks": "npm run bigboyblock && gulp combine-blocks"
+  },
+  "dependencies": {
+    "@wordpress/browserslist-config": "^5.25.0",
+    "@wordpress/server-side-render": "^4.15.0",
+    "gulp-concat-util": "^0.5.5",
+    "gulp-jshint": "^2.1.0",
+    "gulp-watch": "^5.0.1",
+    "map-stream": "^0.0.7"
+  }
+}

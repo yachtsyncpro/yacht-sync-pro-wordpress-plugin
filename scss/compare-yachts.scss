@@ -1,0 +1,101 @@
+@use "vars";
+
+.ysp-compare-yachts-container {
+    width: 100%;
+//    max-width: 1400px;
+    margin: 0px auto;
+    position: relative;
+    
+    .ysp-compare-general-container {
+        width: 100%;
+        max-width: 1400px;
+        position: fixed;
+        z-index: 10;
+
+        .ysp-compare-logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0px;
+            width: 100%;
+
+            img {
+                width: auto;
+                height: 50px;
+            }
+        }
+
+        .ysp-compare-images-container {
+            display: flex;
+            background: #FFFFFF;
+            width: 100%;
+            border: 1px solid #202020;
+
+            .ysp-compare-title-container {
+                width: 20%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                p {
+                    text-transform: uppercase;
+                    font-size: 20px;
+                    color: #202020;
+                }
+            }
+
+            .ysp-compare-images {
+                width: 80%;
+                display: flex;
+
+                .ysp-compare-image {
+                    flex-grow: 1;
+                    width: 100%;
+    
+                    img {
+                        width: 100%;
+                        height: auto;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+
+    .ysp-yacht-compare-supporting-container {
+        width: 100%;
+        border: 1px solid #D1D5DB;
+
+        tbody tr{
+            width: 100%;
+            text-align: center;
+            padding: 10px 0px;
+            width: 100%;
+            margin: 0px;
+
+            background: #fff;
+
+            td{
+
+            }
+
+            &:nth-child(even) {
+                background-color: #F0F5FA;
+            }
+        }
+
+        .ysp-remove-button {
+            padding: 10px 15px;
+            color: vars.$button-text-color;
+            background-color: vars.$button-bg-color;
+            border-radius: 3px;
+            text-decoration: none;
+            margin: 0px auto;
+
+            &:hover{
+                color: vars.$button-text-color;
+                background-color: vars.$button-bg-color;
+            }
+        }
+    }
+}

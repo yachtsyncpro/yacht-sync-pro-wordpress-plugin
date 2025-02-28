@@ -1,0 +1,3 @@
+<?php
+
+	// I said silence

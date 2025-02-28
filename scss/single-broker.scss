@@ -1,0 +1,90 @@
+@use "vars";
+
+.ysp-single-b-container{
+    
+    .ysp-single-b-split{
+        
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+        
+        margin-bottom: 30px;
+
+        .ysp-single-b-main{
+            flex-grow: 1;
+        }
+
+        .ysp-single-b-sidebar{
+            max-width: 400px;
+            min-width: 320px;
+
+             display: none;
+
+            border-radius: 12px;
+            background: #FFF;
+            box-shadow: 0px 1px 4px 0px rgba(24, 26, 32, 0.07);
+
+            padding: 30px;
+
+
+            @media (min-width: vars.$breakpoint-large) {
+               display: block;
+            }
+        }
+
+    }
+
+    .ysp-single-b-card{
+        display: block;
+        
+        border-radius: 0px 12px 12px 0px;
+        border: 2px solid #E4ECF7;
+        border-left: 4px solid vars.$featured-color;
+        background: #FFF;
+
+        padding: 30px;
+
+        box-shadow: 0px 1px 4px 0px rgba(24, 26, 32, 0.07);
+
+        @media (min-width: vars.$breakpoint-large) {
+            display: flex;
+        }
+
+         .broker-image {
+            min-width: 120px;
+            max-width: 120px;
+            height: 120px;
+            object-fit: cover;
+            object-position: top center;
+            background: vars.$border-color;
+            border-radius: 100%;
+
+            margin-right: 30px;
+            margin-bottom: 15px;
+
+            @media (min-width: vars.$breakpoint-large) {
+                min-width: 250px;
+                max-width: 250px;
+                height: 250px;
+            }
+        }
+    }
+
+    .ysp-single-b-contact-form{
+
+    }
+
+    .ysp-single-b-section{
+        margin-bottom: 60px;
+    }
+
+    .ysp-single-b-contact-form{
+        input, textarea, select{
+            margin-bottom: 15px;
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #CBD5E0;
+            background: #FFF;
+        }
+    }
+}
