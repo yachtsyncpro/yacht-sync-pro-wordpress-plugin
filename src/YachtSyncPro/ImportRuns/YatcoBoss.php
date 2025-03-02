@@ -363,27 +363,27 @@
 		                $theBoat['Engines']                  = $engines;
 		                $theBoat['TotalEnginePowerQuantity'] = number_format($enginePower, 2).' hp';
 		            }
-					
-		             if (isset($theBoat['Engines'])) {
-						$theBoat['YSP_EngineCount'] = count($theBoat['Engines']);
-						
-						if (isset($theBoat['Engines'][0]['Model'])){
-							$theBoat->YSP_EngineModel = $theBoat['Engines'][0]['Model'];
+
+					if ( isset( $theBoat['Engines'] ) ) {
+						$theBoat['YSP_EngineCount'] = count( $theBoat['Engines'] );
+
+						if ( isset( $theBoat['Engines'][0]['Model'] ) ) {
+							$theBoat['YSP_EngineModel'] = $theBoat['Engines'][0]['Model'];
 						}
-						if (isset($theBoat['Engines'][0]['Make'])){
-							$theBoat->YSP_EngineMake = $theBoat['Engines'][0]['Make'];
+						if ( isset( $theBoat['Engines'][0]['Make'] ) ) {
+							$theBoat['YSP_EngineMake'] = $theBoat['Engines'][0]['Make'];
 						}
-						if (isset($theBoat['Engines'][0]['Fuel'])){
-							$theBoat->YSP_EngineFuel = $theBoat['Engines'][0]['Fuel'];
+						if ( isset( $theBoat['Engines'][0]['Fuel'] ) ) {
+							$theBoat['YSP_EngineFuel'] = $theBoat['Engines'][0]['Fuel'];
 						}
-						if (isset($theBoat['Engines'][0]['EnginePower'])){
-							$theBoat->YSP_EnginePower = $theBoat['Engines'][0]['EnginePower'];
+						if ( isset( $theBoat['Engines'][0]['EnginePower'] ) ) {
+							$theBoat['YSP_EnginePower'] = $theBoat['Engines'][0]['EnginePower'];
 						}
-						if (isset($theBoat['Engines'][0]['Hours'])){
-							$theBoat->YSP_EngineHours = $theBoat['Engines'][0]['Hours'];
+						if ( isset( $theBoat['Engines'][0]['Hours'] ) ) {
+							$theBoat['YSP_EngineHours'] = $theBoat['Engines'][0]['Hours'];
 						}
-						if (isset($theBoat['Engines'][0]['Type'])){
-							$theBoat->YSP_EngineType = $theBoat['Engines'][0]['Type'];
+						if ( isset( $theBoat['Engines'][0]['Type'] ) ) {
+							$theBoat['YSP_EngineType'] = $theBoat['Engines'][0]['Type'];
 						}
 					}
 
