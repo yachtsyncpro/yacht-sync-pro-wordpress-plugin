@@ -223,33 +223,22 @@
 		           		}
 		           	}
 
-                    $theBoat['BoatLocation']= (object)[
-                    	'BoatCountryID' => $row['LocationCountry'],
-                    	'BoatCityName' => $row['LocationCity'],
-                    	//'BoatStateCode' => $row['LocationState']
-                    ];
+					$theBoat['BoatLocation'] = [
+						'BoatCountryID' => array_key_exists( 'LocationCountry', $row ) ? $row['LocationCountry'] : '',
+						'BoatCityName'  => array_key_exists( 'LocationCity', $row ) ? $row['LocationCity'] : '',
+						'BoatStateCode' => array_key_exists( 'LocationState', $row ) ? $row['LocationState'] : '',
+					];
 
-                    if (isset($row['LocationState'])) {
-                    	$theBoat['BoatLocation']->{'BoatStateCode'} = $row['LocationState'];
-                    }
-  					
-  					if (isset($theBoat['BoatLocation'])) {
-	                    $theBoat['YSP_City'] = $theBoat['BoatLocation']->{'BoatCityName'};
-	                    $theBoat['YSP_CountryID'] = $theBoat['BoatLocation']->{'BoatCountryID'};
-	                    $theBoat['YSP_Full_Country'] = $this->LocationConvert->filpped_country[ $theBoat['YSP_CountryID'] ];
-	                    
-	                    if (isset($theBoat['BoatLocation']->{'BoatStateCode'})) {
+					if ( isset( $theBoat['BoatLocation'] ) ) {
+						$theBoat['YSP_City']         = $theBoat['BoatLocation']['BoatCityName'];
+						$theBoat['YSP_CountryID']    = $theBoat['BoatLocation']['BoatCountryID'];
+						$theBoat['YSP_Full_Country'] = $theBoat['BoatLocation']['BoatCountryID'];
 
-		                    $theBoat['YSP_State'] = $theBoat['BoatLocation']->{'BoatStateCode'};
-
-		                    if (isset($this->LocationConvert->filpped_state[ $theBoat['YSP_State'] ])) {
-		                   		$theBoat['YSP_Full_State'] = $this->LocationConvert->filpped_state[ $theBoat['YSP_State'] ];
-		                    }
-		                    else {
-		                   		$theBoat['YSP_Full_State'] = $theBoat['YSP_State'];
-		                    }
-	                    }
-                    }
+						if ( isset( $theBoat['BoatLocation']['BoatStateCode'] ) ) {
+							$theBoat['YSP_State']      = $theBoat['BoatLocation']['BoatStateCode'];
+							$theBoat['YSP_Full_State'] = $theBoat['BoatLocation']['BoatStateCode'];
+						}
+					}
 		           	
 		           	$detailsUrl = $this->api_url_base.'/ForSale/Vessel/'. $row['VesselID'] .'/Details/fullSpecsAll';
 
@@ -340,29 +329,35 @@
 						}
 
 					}
-	                  
-					if (isset($data['HullDeck']['HullID'])) {
-	                    $theBoat['BoatHullID'] = $data['HullDeck']['HullID'];
+
+					if ( isset( $data['HullDeck']['HullID'] ) ) {
+						$theBoat['BoatHullID'] = $data['HullDeck']['HullID'];
 					}
 
-					if (isset($data['Engines']) && is_array($data['Engines'])) {
-		                $engines     = [];
-		                $enginePower = 0;
-		                foreach ($data['Engines'] as $engine) {
-		                    $enginePower += $engine['PowerHP'];
-		                    
-		                    $engines[] = [
-		                        'Make'        => $engine['Make'],
-		                        'Model'       => $engine['Model'],
-		                        'Fuel'        => $engine['FuelType'],
-		                        'EnginePower' => $engine['Horsepower'],
-		                        'Type'        => $engine['EngineType'],
-		                        'Hours'       => $engine['AppoxHours'],
-		                    ];
-		                }
-		                $theBoat['Engines']                  = $engines;
-		                $theBoat['TotalEnginePowerQuantity'] = number_format($enginePower, 2).' hp';
-		            }
+					if ( isset( $data['Engines'] ) && is_array( $data['Engines'] ) ) {
+						$engines     = [];
+						$enginePower = 0;
+						foreach ( $data['Engines'] as $engine ) {
+							if ( array_key_exists( 'Horsepower', $engine ) ) {
+								$enginePower += $engine['Horsepower'];
+							}
+
+							$engines[] = [
+								'Make'           => array_key_exists( 'Manufacturer', $engine ) ? $engine['Manufacturer'] : '',
+								'Model'          => array_key_exists( 'Model', $engine ) ? $engine['Model'] : '',
+								'Fuel'           => array_key_exists( 'FuelType', $engine ) ? $engine['FuelType'] : '',
+								'Horsepower'     => array_key_exists( 'Horsepower', $engine ) ? $engine['Horsepower'] : '',
+								'EnginePower'    => array_key_exists( 'Horsepower', $engine ) ? $engine['Horsepower'] : '',
+								'Type'           => array_key_exists( 'EngineType', $engine ) ? $engine['EngineType'] : '',
+								'Hours'          => array_key_exists( 'AppoxHours', $engine ) ? $engine['AppoxHours'] : '',
+								'Year'           => array_key_exists( 'Year', $engine ) ? $engine['Year'] : '',
+								'toString'       => array_key_exists( 'toString', $engine ) ? $engine['toString'] : '',
+								'ReportToString' => array_key_exists( 'ReportToString', $engine ) ? $engine['ReportToString'] : '',
+							];
+						}
+						$theBoat['Engines']                  = $engines;
+						$theBoat['TotalEnginePowerQuantity'] = ( $enginePower !== 0 ) ? number_format( $enginePower, 2 ) . ' hp' : '';
+					}
 
 					if ( isset( $theBoat['Engines'] ) ) {
 						$theBoat['YSP_EngineCount'] = count( $theBoat['Engines'] );
@@ -370,8 +365,8 @@
 						if ( isset( $theBoat['Engines'][0]['Model'] ) ) {
 							$theBoat['YSP_EngineModel'] = $theBoat['Engines'][0]['Model'];
 						}
-						if ( isset( $theBoat['Engines'][0]['Make'] ) ) {
-							$theBoat['YSP_EngineMake'] = $theBoat['Engines'][0]['Make'];
+						if ( isset( $theBoat['Engines'][0]['Manufacturer'] ) ) {
+							$theBoat['YSP_EngineMake'] = $theBoat['Engines'][0]['Manufacturer'];
 						}
 						if ( isset( $theBoat['Engines'][0]['Fuel'] ) ) {
 							$theBoat['YSP_EngineFuel'] = $theBoat['Engines'][0]['Fuel'];

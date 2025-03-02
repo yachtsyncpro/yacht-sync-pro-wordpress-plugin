@@ -1,34 +1,35 @@
 <?php
-    class YachtSyncPro_YoastFun_Schema_PDFDoc {
 
-        public $context;
+class YachtSyncPro_YoastFun_Schema_PDFDoc {
 
-        public function __construct( WPSEO_Schema_Context $context ) {
-            $this->context = $context;
+	public $context;
+	public $options;
 
-            $this->options = new YachtSyncPro_Options();
-        }
+	public function __construct( WPSEO_Schema_Context $context ) {
+		$this->context = $context;
+		$this->options = new YachtSyncPro_Options();
+	}
 
-        public function is_needed() {
-            return is_singular('ysp_yacht');
-        }
+	public function is_needed() {
+		return is_singular( 'ysp_yacht' );
+	}
 
-        public function generate() {
-            $current_post = $this->context->post;
-            
-            $pdf_url = get_post_meta($current_post->ID, 'YSP_PDF_URL', true);
+	public function generate() {
+		$current_post = $this->context->post;
 
-            if (empty($pdf_url)) {
-                return [];
-            }
+		$pdf_url = get_post_meta( $current_post->ID, 'YSP_PDF_URL', true );
 
-            $data = [
-                "@type" => "DigitalDocument",
-                "name" => $current_post->post_title.' Brochure' ,
-                "author" => $this->options->get('company_name'),
-                "url" => $pdf_url,
-            ];
+		if ( empty( $pdf_url ) ) {
+			return [];
+		}
 
-            return $data;
-        }
-    }
+		$data = [
+			"@type"  => "DigitalDocument",
+			"name"   => $current_post->post_title . ' Brochure',
+			"author" => $this->options->get( 'company_name' ),
+			"url"    => $pdf_url,
+		];
+
+		return $data;
+	}
+}

@@ -131,7 +131,7 @@
 
 		}
 
-		public function super_custome_join( $join = '',  $query ) {
+		public function super_custome_join( $join = '',  $query = false ) {
 			global $wpdb;
 
 			//$where .= " AND post_date >= '" . date('Y-m-d', strtotime('-60 days')) . "'" . " AND post_date <= '" . date('Y-m-d', strtotime('-30 days')) . "'";
@@ -139,8 +139,12 @@
     		return $join;
 		}
 
-		public function super_custome_wheres( $where = '',  $query ) {
+		public function super_custome_wheres( $where = '',  $query = false ) {
 			global $wpdb;
+
+			if ( ! $query ) {
+				return $where;
+			}
 
 			if ($this->if_query_var_check($query->get('ys_keyword_content'))) {
 				$keywords=$query->get('ys_keyword_content');
