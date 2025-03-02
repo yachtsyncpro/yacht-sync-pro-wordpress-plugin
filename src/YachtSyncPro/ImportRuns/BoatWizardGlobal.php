@@ -46,6 +46,11 @@
 			// Sync broker inventory
 			$apiCall = wp_remote_get($this->globalInventoryUrl, ['timeout' => 120]);
 
+			// If wp_error return
+			if (is_wp_error($apiCall)) {
+				return ['error' => 'Error with API call'];
+			}
+
 				$apiCallBody=json_decode(wp_remote_retrieve_body($apiCall), true);
 
 				$api_status_code = wp_remote_retrieve_response_code($apiCall);
