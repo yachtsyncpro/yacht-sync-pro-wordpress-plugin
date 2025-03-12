@@ -27,6 +27,7 @@ function ysp_yacht_search_and_reader(data) {
         jQuery('#ysp-search-paragraph').text(data_result.SEO.p);
 
         jQuery('#ysp-total-yacht-results').text(new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(data_result.total));
+        jQuery('#ysp-total-yacht-result-set').text(data_result.total_set);
 
         let currentURL=null;
 

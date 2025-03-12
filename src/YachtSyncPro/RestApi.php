@@ -199,8 +199,15 @@
 
 			$yachts_query=new WP_Query($yArgs);
 
+			$pagenum = $yachts_query->query_vars['page_index'] < 1 ? 1 : $yachts_query->query_vars['page_index'];
+			$first = ( ( $pagenum - 1 ) * $yachts_query->query_vars['posts_per_page'] ) + 1;
+			$last = $first + $yachts_query->post_count - 1;
+
 			$return = [
 				'total' => $yachts_query->found_posts,
+				'total_set' => "$first - $last of $yachts_query->found_posts",
+				'total_displaying' => $yachts_query->query_vars['posts_per_page'],
+
 				'results' => []
 			];
 

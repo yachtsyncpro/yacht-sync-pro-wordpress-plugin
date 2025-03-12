@@ -9,7 +9,7 @@
     
     <div class="yacht-search-top">
         <div class="found">
-            <span class="total-results"><span id="ysp-total-yacht-results"></span> YACHTS FOUND</span>
+            <span class="total-results"><span id="ysp-total-yacht-result-set"></span> YACHTS FOUND</span>
         </div>
 
         <div class="dropdowns">
