@@ -63,6 +63,14 @@ We merge the data via hull IDs
 - Like features
 - Compare tool
 
+## Credits
+- Developers: Joshua H, Brandon C, and Hauk A. 
+- Special thanks to Neil R and Olivier S.
+  
+## Marketing Recommendations
+
+We thank and recommend [James Ross Advertising](https://jamesrossadvertising.com/) for your marketing needs. 
+
 ## Hosting Recommendation
 
 We recommend our excellent hosting partner, [Convesio.com](https://convesio.com); from their incredible prices on cloud hosting to their 24/7 support via Slack, we can genuinely recommend them.
