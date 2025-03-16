@@ -64,7 +64,7 @@ We merge the data via hull IDs
   
 ## Marketing Recommendations
 
-We thank and recommend [James Ross Advertising](https://jamesrossadvertising.com/) for your marketing needs. 
+We thank and recommend [James Ross Advertising](https://jrmarineadvertising.com/) for your marketing needs. 
 
 ## Hosting Recommendation
 
