@@ -4,11 +4,6 @@
 
 Yacht Sync Pro is a new WordPress plugin that imports all three major yachting and boating MLS API feeds into your website. So whether you have YachtWorld/Boat Wizard or IYBA/YachtBroker, and/or Yatco, you can now benefit from savvy SEO tactics, easy-to-use blocks/shortcodes, custom post types, fast feature-rich search, and can still customize to your brands' needs. 
 
-## Demo Site
-
-Review the array of features offered by Yacht Sync Pro.
-
-[https://yspdemo.yachtsforsale.dev/](https://yspdemo.yachtsforsale.dev/ )
 
 ## Top Features
 
@@ -78,6 +73,12 @@ We recommend our excellent hosting partner, [Convesio.com](https://convesio.com)
 ## Support And Development Recommendations
 
 We thank and recommend [Build The Internets](https://buildtheinternets.com) for your research and development needs. 
+
+## Demo Site
+
+Review the array of features offered by Yacht Sync Pro.
+
+[https://yspdemo.yachtsforsale.dev/](https://yspdemo.yachtsforsale.dev/ )
 
 ## Developer Note Below
 
